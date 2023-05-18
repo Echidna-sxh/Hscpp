@@ -2,12 +2,12 @@
 #include <memory>
 namespace Echidna
 {
-class UserCtx
-{
-public:
-    virtual ~UserCtx();
-};
+    class UserCtx
+    {
+    public:
+        virtual ~UserCtx();
+    };
 
-using CtxPtr = std::shared_ptr<UserCtx>;
+    using CtxPtr = std::shared_ptr<UserCtx>;
 
 }

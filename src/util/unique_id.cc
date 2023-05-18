@@ -19,7 +19,7 @@ namespace Echidna
     {
         auto id = RandUint();
         mtx.lock();
-        while(id_set.find(id) != id_set.end())
+        while (id_set.find(id) != id_set.end())
         {
             id = RandUint();
         }
@@ -30,12 +30,12 @@ namespace Echidna
 
     bool UniqueIdGen::SetID(unsigned int id)
     {
-        if(id == std::numeric_limits<unsigned int>::max())
+        if (id == std::numeric_limits<unsigned int>::max())
         {
             return false;
         }
         mtx.lock();
-        if(id_set.find(id) != id_set.end())
+        if (id_set.find(id) != id_set.end())
         {
             mtx.unlock();
             return false;
@@ -46,7 +46,6 @@ namespace Echidna
             mtx.unlock();
             return true;
         }
-        
     }
 
     UniqueIdGen IdGenerator;

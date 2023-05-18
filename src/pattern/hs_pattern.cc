@@ -6,7 +6,7 @@
 namespace Echidna
 {
     Hs_Pattern::Hs_Pattern(const std::string &pat, UserCtx *ctx)
-    :Pattern(pat)
+        : Pattern(pat)
     {
         id = IdGenerator.GetID();
         flag = 0;
@@ -14,7 +14,7 @@ namespace Echidna
     }
 
     Hs_Pattern::Hs_Pattern(const std::string &pat, uint32_t uid, UserCtx *ctx)
-    :Pattern(pat)
+        : Pattern(pat)
     {
         if (uid == AUTOID)
         {
@@ -34,7 +34,7 @@ namespace Echidna
     }
 
     Hs_Pattern::Hs_Pattern(const std::string &pat, uint32_t uid, uint32_t uflag, UserCtx *ctx)
-    :Pattern(pat)
+        : Pattern(pat)
     {
         if (uid == AUTOID)
         {
@@ -53,7 +53,7 @@ namespace Echidna
         userctx = std::make_shared<UserCtx>(*ctx);
     }
 
-    const std::string& Hs_Pattern::Get()
+    const std::string &Hs_Pattern::Get()
     {
         return this->expression;
     }
@@ -81,7 +81,7 @@ namespace Echidna
 
     void Hs_Pattern::Set_min_offset(unsigned long long offset)
     {
-        if(!ex_flag)
+        if (!ex_flag)
         {
             InitExFlag(ex_flag);
         }
@@ -89,9 +89,9 @@ namespace Echidna
         ex_flag->flags |= HS_EXT_FLAG_MIN_OFFSET;
     }
 
-    void Hs_Pattern::Set_max_offset(unsigned long long offset) 
+    void Hs_Pattern::Set_max_offset(unsigned long long offset)
     {
-        if(!ex_flag)
+        if (!ex_flag)
         {
             InitExFlag(ex_flag);
         }
@@ -101,7 +101,7 @@ namespace Echidna
 
     void Hs_Pattern::Set_min_length(unsigned long long min_length)
     {
-        if(!ex_flag)
+        if (!ex_flag)
         {
             InitExFlag(ex_flag);
         }
@@ -111,11 +111,11 @@ namespace Echidna
 
     void Hs_Pattern::Set_edit_distance(unsigned int edit_distance)
     {
-        if(!ex_flag)
+        if (!ex_flag)
         {
             InitExFlag(ex_flag);
         }
-        if(edit_distance > EDIT_DISTANCE_MAX)
+        if (edit_distance > EDIT_DISTANCE_MAX)
         {
             DLogger.DLog(LogType::Warning, " performance may be low, due to large edit_distance:" + std::to_string(edit_distance));
         }
@@ -125,11 +125,11 @@ namespace Echidna
 
     void Hs_Pattern::Set_hamming_distance(unsigned int hamming_distance)
     {
-        if(!ex_flag)
+        if (!ex_flag)
         {
             InitExFlag(ex_flag);
         }
-        if(hamming_distance > EDIT_DISTANCE_MAX)
+        if (hamming_distance > EDIT_DISTANCE_MAX)
         {
             DLogger.DLog(LogType::Warning, " performance may be low, due to large hamming_distance:" + std::to_string(hamming_distance));
         }
